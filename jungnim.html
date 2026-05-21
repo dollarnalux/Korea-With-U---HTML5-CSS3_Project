@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Jangnim Harbor | KOREA with U</title>
+    <link rel="icon" href="images/logo.png"> <!-- icon บนแท็ป title bar -->
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #f5f5f5;
+            font-family: Arial;
+        }
+
+        nav {
+            position: fixed; /* ทำให้เมนูอยู่ด้านบนตลอดเวลา */
+            top: 0;
+            left: 0;
+            width: 96.4%;
+            z-index: 1000; /* ทำให้เมนูอยู่เหนือเนื้อหาอื่นๆ */
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            font-family: Arial;
+            align-items: center;
+            padding: 10px 30px;
+            border-bottom: 1.5px solid #e9edf5;
+        }
+
+        .logo img {
+            width: 100px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 40px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #42526e;
+            font-size: 20px;
+        }
+
+        nav a:hover { /* เพิ่มเอฟเฟกต์เมื่อ hover บนลิงก์ในเมนู */
+            color: black; /* เปลี่ยนสีเมื่อเม้าส์ชี้ */
+            transition: color 0.3s ease; /* เพิ่มความนุ่มนวลในการเปลี่ยนแปลง */
+        }
+
+        .article { /* เพิ่มคลาสสำหรับจัดรูปแบบบทความ */
+            font-family: 'Prompt', sans-serif; /* ใช้ฟอนต์ Prompt จาก Google Fonts */
+            padding: 20px;
+            margin-bottom: 80px; /* เพิ่มระยะห่างด้านล่างเพื่อไม่ให้ติดกับส่วนอื่น */
+        }
+        
+        /* เพิ่มคลาสสำหรับจัดรูปแบบหัวข้อ */
+        .main_title { 
+            position: absolute;
+            top: 55px;
+            left: 50%;
+            font-family: 'Playfair Display', serif;
+            font-size: 70px;
+            transform: translate(-50%); /* จัดกึ่งกลางแนวนอน */
+            color: #264180;
+            letter-spacing: 2px; /* เพิ่มระยะห่างระหว่างตัวอักษร */
+        }
+        
+        /* เพิ่มคลาสสำหรับจัดรูปแบบหัวข้อ */
+
+        .title { 
+            width: 80%; 
+            margin: auto; /* จัดกึ่งกลางแนวนอน */
+            letter-spacing: 1.5px; 
+            line-height: 1.5; /* เพิ่มระยะห่างระหว่างบรรทัด */
+            font-family: 'Prompt', sans-serif; /* ใช้ฟอนต์ Prompt จาก Google Fonts */
+            font-size: 35px;
+            color: #42526e;
+        }
+
+        .detail { /* เพิ่มคลาสสำหรับจัดรูปแบบรายละเอียด */      
+            text-indent: 50px; /* เพิ่มการเยื้องบรรทัดแรก */
+            width: 80%; /* กำหนดความกว้างของข้อความ */
+            margin: auto; /* จัดกึ่งกลางแนวนอน */
+            margin-top: 40px;
+            font-family: 'Prompt', sans-serif;
+            font-size: 23px;
+            color: #76829b;
+        }
+
+        .mt1 { /* คลาสสำหรับเพิ่มระยะห่างด้านบน */
+            margin-top: 100px;
+        }
+
+        .image { /* เพิ่มคลาสสำหรับจัดรูปแบบภาพ */
+            display: block; /* ทำให้ภาพเป็นบล็อกเพื่อจัดการกับการจัดวาง */
+            margin: auto; /* จัดกึ่งกลางแนวนอนและเพิ่มระยะห่างด้านบนและล่าง */
+            width: 50%; /* กำหนดความกว้างของภาพ */
+            border-radius: 15px;
+        }
+        
+        .mt-240 { /* คลาสสำหรับเพิ่มระยะห่างด้านบน */
+            margin-top: 240px;
+            }
+
+        .jn_way_list {
+            text-indent: 50px; /* ย่อหน้าบรรทัดแรก */
+            top: 1000px;
+            left: 50%; 
+            width: 80%; /* กำหนดความกว้างของข้อความ */
+            margin: auto;
+            font-size: 23px;
+            font-family: 'Prompt', sans-serif;
+            color: #76829b;
+            line-height: 1.5; /* เพิ่มระยะห่างระหว่างบรรทัด */
+            padding: 30px; /* เพิ่มระยะห่างรอบๆ รายการ */
+        }
+
+        /* การใช้ list*/
+        dl {
+            margin-left: 20px; /* เพิ่มระยะห่างด้านซ้ายของแต่ละกลุ่ม */
+            margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่างของแต่ละกลุ่ม */
+        }        
+
+        dt { /*หัวข้อย่อย */
+            font-weight: bold; /* กำหนดน้ำหนักของฟ้อนท์ ให้เป็นตัวหนา */
+            margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
+        }
+        
+        .footer {  /*ส่วนล่างสุด*/
+            margin-top: 200px;
+            width: 100%;
+            background-color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .social-icons{
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 15px;
+        }
+
+        .social-icons a{
+            color: #42526e;
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover{
+            color: black;
+            transform: translateY(-3px); 
+        }
+
+        .footer-text{
+            color: #42526e;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="homepage.html">
+                <img src="images/logo.png">
+            </a>
+        </div>
+
+        <div class="menu">
+            <a href="homepage.html">Home</a>
+            <a href="choose.html" target="_blank">Places</a>
+            <a href="https://maps.app.goo.gl/KZ5bHDy1Zht4MVK88" target="_blank">Maps</a>
+        </div>   
+    </nav>
+
+
+    <!-- นำเข้า Google Fonts แล้วไม่ต้องนำเข้าอีก -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap"> <!-- นำเข้า Google Font Playfair Display -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500&display=swap"> <!-- นำเข้า Google Font Prompt -->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>  <!-- นำเข้า social-icons -->
+    
+    <h1 class="main_title">Jangnim Harbor</h1>
+    <img src="images/jn_2.jpg" class="image mt-240" alt="Trulli">
+    <p class="detail">Jangnim Harbor หรือที่คนเกาหลีเรียกว่า 장림포구 (จังนิมโพกู) คือ ท่าเรือประมงขนาดเล็กที่ตั้งอยู่ในเขตซาฮากู (Saha-gu) 
+        <br>เมืองปูซาน ประเทศเกาหลีใต้ เนื่องจากความร่วมมือระหว่างรัฐบาลท้องถิ่นและชาวบ้านที่ได้ร่วมกันพลิกโฉมจากอดีตท่าเรือประมงเงียบๆ
+        <br>ในเขตอุตสาหกรรม ให้กลายเป็นแลนด์มาร์กสุดน่ารักที่มีชีวิตชีวา และได้รับฉายาว่า "เวนิสแห่งปูซาน" หรือที่เรียกว่า Bunezia
+        <br>เป็นคำผสมระหว่าง Busan + Venezia จุดเด่นคือโกดังเก็บของสีพาสเทลสดใส ตัดกับเรือประมงที่จอดเรียงราย เป็นจุดถ่ายรูปสุดยอดนิยม
+        สำหรับสายคอนเทนต์ มีบรรยากาศชิลๆ และร้านขายออมุก (ลูกชิ้นปลา) แสนอร่อย</p><br><br><br>
+            
+    <!-- สิ่งที่น่าสนใจ -->
+        <h2 class="title">▶ สิ่งที่น่าสนใจ</h2>
+        <p class="detail">สิ่งที่น่าสนใจที่ Jangnim Harbor มีมากมาย ไม่ว่าจะเป็นการชมสถาปัตยกรรมที่งดงามของท่าเรือ หรือการเข้าร่วมกิจกรรมต่างๆ 
+            <br>ที่จัดขึ้นในบริเวณท่าเรือ และด้วย Jangnim Harbor ตั้งอยู่ในพื้นที่เมืองปูซาน จึงยังมีสิ่งที่น่าสนใจอื่นๆ อีกมากมาย</p><br><br>
+        <img src="images/jn_1.jpg" class="image" alt="Trulli"><br>
+        <img src="images/jn_3.jpg" class="image" alt="Trulli"><br>
+        <p class="detail">ชั้น 2 จะเป็นร้านอาหารง่ายๆ กินรองท้องได้ บรรยากาศของชั้น 2 จะเป็นทางเดินที่จัดวางได้สวย ซึ่งร้านอาหารแต่ละร้าน 
+            <br>ก็จะมีวันหยุดที่ไม่เหมือนกัน หากอยากกินร้านไหนต้องทำการหาข้อมูลมาก่อน อาหารอร่อยราคาไม่สูงเหมือนร้านทั่วไป</p><br><br>
+        <img src="images/jn_4.jpg" class="image" alt="Trulli"><br>
+        <img src="images/jn_5.jpg" class="image" alt="Trulli">
+
+        <p class="detail">ตลาดปลาจากัลชี (Jagalchi Market) เป็นตลาดปลาและอาหารทะเล ทั้งแบบสด และแบบตากแห้งที่ใหญ่ที่สุดของเกาหลี 
+            <br>อีกหนึ่งแลนมาร์คของเมืองปูซานที่ไม่ควรพลาด ตลาดจะอยู่ตรงข้ามกับ BIFF Square มาลงสถานี Jagalchi (Exit 10)
+            <br>เปิดตั้งแต่ 05:00-22:00 แนะนำให้มาตั้งแต่ 9 โมงเช้าเป็นต้นไป เพราะตลาดจะเปิดทั้งส่วนของภายนอก และร้านภายในอาคาร</p><br><br>
+        <img src="images/jn_6.jpg" class="image" alt="Trulli"><br>
+        <img src="images/jn_7.jpg" class="image" alt="Trulli"><br><br>
+
+
+    <!-- การเดินทางไปยังพระราชวังเคียงบก -->
+        <h2 class="title">▶ การเดินทาง</h2>
+    
+    <!-- การใช้แท๊ก list เป็นรายการๆ-->    
+    <ul class="jn_way_list">
+    <dl>
+        <dt><b>◼︎ Subway </b></dt>
+        <dd>
+            <p>รถไฟใต้ดิน Busan สาย 1 ลงที่สถานี Janglim (Exit 1) ต่อรถ Taxi หรือ Bus</p>
+        </dd>
+    </dl>
+
+    <dl>
+        <dt><b>◼︎ Bus </b></dt>
+        <dd>
+            <p>รถเมล์ท้องถิ่น (Saha-gu 5) ที่ป้าย Janglim Elementary School ลงที่ป้าย Janglim Port (Bunecia) เดินต่อประมาณ 2 นาที</p>
+            <p>รถเมล์สาย 3-1 ที่สถานี Sinpyeong Station (Exit 3) แล้วต่อรถเมล์ท้องถิ่น (Saha-gu 5) ลงที่ป้าย Janglim Port</p>
+        </dd>
+    </dl>
+
+    <dl>
+        <dt><b>◼︎ Taxi </b></dt>
+        <dd>
+            <p>ถ้าเงินเหลือ เรียก Taxi เลย ถึงไวสุด 😁😁</p>
+        </dd>
+    </dl>
+    </ul>
+
+    <!-- footer ด้านล่าง-->
+    <footer class="footer">
+
+    <h3 class="footer-text">CONTACT</h3><br>
+
+    <div class="social-icons">
+        <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.line.me" target="_blank"><i class="fa-brands fa-line"></i></a>
+        <a href="https://mail.google.com" target="_blank"><i class="fa-brands fa-google"></i></a>
+    </div>
+
+    <p class="footer-text">Copyright © 2026 KOREA with U</p>
+
+    </footer>
+
+</body>
+</html>

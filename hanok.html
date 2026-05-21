@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bukchon Hanok Village | KOREA with U</title>
+    <link rel="icon" href="images/logo.png"> <!-- icon บนแท็ป title bar -->
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #f5f5f5;
+            font-family: Arial;
+        }
+
+        nav {
+            position: fixed; /* ทำให้เมนูอยู่ด้านบนตลอดเวลา */
+            top: 0;
+            left: 0;
+            width: 96.4%;
+            z-index: 1000; /* ทำให้เมนูอยู่เหนือเนื้อหาอื่นๆ */
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            font-family: Arial;
+            align-items: center;
+            padding: 10px 30px;
+            border-bottom: 1.5px solid #e9edf5;  
+        }
+        
+        .logo img {
+            width: 100px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 40px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #42526e;
+            font-size: 20px;
+        }
+
+        nav a:hover { /* เพิ่มเอฟเฟกต์เมื่อ hover บนลิงก์ในเมนู */
+            color: black; /* เปลี่ยนสีเมื่อเม้าส์ชี้ */
+            transition: color 0.3s ease; /* เพิ่มความนุ่มนวลในการเปลี่ยนแปลง */
+        }
+
+        .article { /* เพิ่มคลาสสำหรับจัดรูปแบบบทความ */
+            font-family: 'Prompt', sans-serif; /* ใช้ฟอนต์ Prompt จาก Google Fonts */
+            padding: 20px;
+        margin-bottom: 80px; /* เพิ่มระยะห่างด้านล่างเพื่อไม่ให้ติดกับส่วนอื่น */
+        }
+        
+        /* เพิ่มคลาสสำหรับจัดรูปแบบหัวข้อ */
+        .main_title { 
+            position: absolute;
+            top: 55px;
+            left: 50%;
+            font-family: 'Playfair Display', serif;
+            font-size: 70px;
+            transform: translate(-50%); /* จัดกึ่งกลางแนวนอน */
+            color: #264180;
+            letter-spacing: 2px; /* เพิ่มระยะห่างระหว่างตัวอักษร */
+        }
+        
+        /* เพิ่มคลาสสำหรับจัดรูปแบบหัวข้อ */
+        .title { 
+            width: 80%; 
+            margin: auto; /* จัดกึ่งกลางแนวนอน */
+            letter-spacing: 1.5px; /* เพิ่มระยะห่างระหว่างตัวอักษร */
+            line-height: 1.5; /* เพิ่มระยะห่างระหว่างบรรทัด */
+            font-family: 'Prompt', sans-serif; 
+            font-size: 35px;
+            color: #42526e;
+        }
+
+        /* เพิ่มคลาสสำหรับจัดรูปแบบรายละเอียด */
+        .detail { 
+            text-indent: 50px; /* เพิ่มการเยื้องบรรทัดแรก */
+            width: 80%; /* กำหนดความกว้างของข้อความ */
+            margin: auto; /* จัดกึ่งกลางแนวนอน */
+            margin-top: 40px;
+            font-family: 'Prompt', sans-serif;
+            font-size: 23px;
+            color: #76829b;
+            
+            
+        }
+
+        /* คลาสสำหรับเพิ่มระยะห่างด้านบน */
+        .mt1 { 
+            margin-top: 100px;
+        }
+
+        /* เพิ่มคลาสสำหรับจัดรูปแบบภาพ */
+        .image { 
+            display: block; /* ทำให้ภาพเป็นบล็อกเพื่อจัดการกับการจัดวาง */
+            margin: auto; /* จัดกึ่งกลางแนวนอนและเพิ่มระยะห่างด้านบนและล่าง */
+            width: 50%; /* กำหนดความกว้างของภาพ */
+            border-radius: 15px; 
+        }
+        
+        /* คลาสสำหรับเพิ่มระยะห่างด้านบน */
+        .mt-240 { 
+            margin-top: 240px;
+            }
+            
+        .ho_way_list {
+            text-indent: 50px; /* ย่อหน้าบรรทัดแรก */
+            top: 1000px;
+            left: 50%; 
+            width: 80%; /* กำหนดความกว้างของข้อความ */
+            margin: auto; 
+            font-size: 23px;
+            font-family: 'Prompt', sans-serif;
+            color: #76829b; 
+            line-height: 1.5; /* เพิ่มระยะห่างระหว่างบรรทัด */
+            padding: 30px; /* เพิ่มระยะห่างรอบๆ รายการ */
+        }
+        
+        .word {
+            font-size: 25px;
+            color: #42526e;
+        }
+
+        .ho_way_list li {
+            margin-bottom: 8px; /* เพิ่มระยะห่างด้านล่างของแต่ละรายการ */
+            margin-left: 20; /*เพิ่มระยะห่างด้านซ้าย*/
+            list-style-position: inside; /* การกำหนดตำแหน่งของ bullet (•) ให้อยู่ข้างใน กล่องข้อความ*/
+        }
+
+        /* การใช้ list ซ้อน list*/
+
+        dl {
+            margin-left: 20px; /* เพิ่มระยะห่างด้านซ้ายของแต่ละกลุ่ม */
+            margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่างของแต่ละกลุ่ม */
+        }        
+
+        dt { /*หัวข้อย่อย */
+            font-weight: bold; /* กำหนดน้ำหนักของฟ้อนท์ ให้เป็นตัวหนา */
+            margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
+        }
+        
+        .footer {  /*ส่วนล่างสุด*/
+            margin-top: 200px;
+            width: 100%;
+            background-color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .social-icons{
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 15px;
+        }
+
+        .social-icons a{
+            color: #42526e;
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover{
+            color: black;
+            transform: translateY(-3px); 
+        }
+
+        .footer-text{
+            color: #42526e;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="homepage.html">
+                <img src="images/logo.png">
+            </a>
+        </div>
+
+        <div class="menu">
+            <a href="homepage.html">Home</a>
+            <a href="choose.html" target="_blank">Places</a>
+            <a href="https://maps.app.goo.gl/eYj7gYdwi7N3XWtu9" target="_blank">Maps</a>
+
+        </div>   
+    </nav>
+
+    <!-- นำเข้า Google Fonts แล้วไม่ต้องนำเข้าอีก -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap"> <!-- นำเข้า Google Font Playfair Display -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500&display=swap"> <!-- นำเข้า Google Font Prompt -->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>  <!-- นำเข้า social-icons -->
+
+    <h1 class="main_title">Bukchon Hanok Village</h1>
+    <img src="images/hanok6.jpg" class="image mt-240" alt="Trulli">
+    <p class="detail ">หมู่บ้านบุกชอนฮันอก (북촌 한옥마을) เป็นหมู่บ้านโบราณชื่อดังใจกลางกรุงโซล ประเทศเกาหลีใต้ ที่ตัวบ้านเรือนเป็นสไตล์ยุคโชซอนแบบดั้งเดิม ที่เรียกว่า "ฮันอก (Hanok)"  
+            ท่ามกลางตึกรามบ้านช่องและสถาปัตยกรรมอันทันสมัยของกรุงโซลนั้น หมู่บ้านบุกชอนฮันอก ยังคงรักษาอาคารบ้านเรือนสมัยโบราณไว้ได้อย่างครบถ้วน เป็นสถานที่ท่องเที่ยวเชิงวัฒนธรรมในโซล
+            ที่สืบทอดกันมายาวนานตั้งแต่ยุคสมัยของราชวงศ์โชซอน มีอายุกว่า 600 ปี เดิมเป็นที่อยู่อาศัยของครอบครัวขุนนางและข้าราชการระดับสูง 
+            ปัจจุบันได้กลายเป็นมรดกทางวัฒนธรรมอันทรงคุณค่าแห่งหนึ่งของเกาหลี ภายในหมู่บ้าน ยังเป็นที่อยู่อาศัยของคนท้องถิ่นจริงๆ มีบ้านเรือนทั้งหมดประมาณ 100 หลัง 
+            ซึ่งเป็นบ้านสไตล์ดั้งเดิมของเกาหลีทั้งหมด ดังนั้น การมาเที่ยวที่นี่จะต้องระวังไม่รบกวนผู้อยู่อาศัยจริงๆด้วยนะ </p><br><br>
+    
+    <!-- จุดเด่นของหมู่บ้าน -->
+        <h2 class="title">▶ จุดเด่นของหมู่บ้าน</h2>
+        <ul class="ho_way_list">    
+            <li>ถนนตรอกเล็กๆ บนเนินเขา</li>
+            <li>บ้านไม้ฮันอกเรียงต่อกันอย่างสวยงาม</li>
+            <li>วิวหลังคากระเบื้องแบบเกาหลีดั้งเดิม</li>
+            <li>บรรยากาศเงียบสงบและคลาสสิก</li>
+        </ul>
+
+    <!-- สิ่งที่น่าสนใจ -->
+        <h2 class="title">▶ สิ่งที่น่าสนใจ</h2>
+        <p class="detail word">◼︎ Cafe สไตล์เกาหลี</p><br><br>
+        <img src="images/collage6.jpg" class="image" alt="Trulli"><br>
+        
+        <p class="detail word">◼︎ ร้านงาน Handmade / Craft </p><br><br>
+        <img src="images/collage7.jpg" class="image" alt="Trulli"><br>
+
+        <p class="detail word">◼︎ ร้านเช่าชุด Hanbok </p><br><br>
+        <img src="images/cl1.jpg" class="image" alt="Trulli"><br><br>
+        <img src="images/hanok7.jpg" class="image" alt="Trulli"><br><br>
+
+    <!-- การเดินทางไปยังพระราชวังเคียงบก -->
+        <h2 class="title">▶ การเดินทาง</h2>
+    
+    <!-- การใช้แท๊ก list เป็นรายการๆ-->    
+    <ul class="ho_way_list">
+    <dl> 
+        <dt><b>◼︎ Subway </b></dt>
+        <dd>
+            <p>รถไฟใต้ดินสาย 3 ลงสถานี Anguk Station (Exit 2) เดินต่ออีกประมาณ 10 นาที</p>
+        </dd>
+    </dl>
+
+    <dl>
+        <dt><b>◼︎ Bus </b></dt>
+        <dd>
+            <p>สาย : 109 , 151 , 162 สามารถลงบริเวณ Anguk หรือ Bukchon แล้วเดินต่อไม่นาน </p>
+            <p>สาย : Jongno 11 เป็นสายที่คนใช้ไป Bukchon บ่อย ลงแถว Bukchon-ro หรือ Anguk แล้วเดินต่อ</p>
+        </dd>
+    </dl>
+
+    <dl>
+        <dt><b>◼︎ Taxi </b></dt>
+        <dd>
+            <p>ไวที่สุด สะดวกสำหรับคนที่ไม่อยากเดินขึ้นเนิน ช่วงวันหยุดอาจรถติดเล็กน้อย</p>
+        </dd>
+    </dl>
+    </ul>        
+
+    <!-- footer ด้านล่าง-->
+    <footer class="footer">
+
+    <h3 class="footer-text">CONTACT</h3><br>
+
+    <div class="social-icons">
+        <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.line.me" target="_blank"><i class="fa-brands fa-line"></i></a>
+        <a href="https://mail.google.com" target="_blank"><i class="fa-brands fa-google"></i></a>
+    </div>
+
+    <p class="footer-text">Copyright © 2026 KOREA with U</p>
+
+    </footer>
+
+</body>
+</html>

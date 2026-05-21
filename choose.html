@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Highlights Places | KOREA with U</title>
+    <link rel="icon" href="images/logo.png">
+ 
+    <style>
+        body {
+            margin: 0;
+            background-image: url("images/hl.jpg");
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            padding-bottom: 400px;
+            font-family: Arial;
+        }
+
+        nav {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            font-family: Arial;
+            align-items: center;
+            padding: 10px 30px;
+            border-bottom: 1.5px solid #e9edf5;
+        }
+
+        /* โลโก้หัวมุมบนซ้าย*/
+        .logo img {
+            width: 100px;
+        }
+        /* เมนูแถบบน */
+        .menu {
+            display: flex;
+            gap: 40px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #42526e;
+            font-size: 20px;
+        }
+
+        nav a:hover { /* เพิ่มเอฟเฟกต์เมื่อ hover บนลิงก์ในเมนู */
+            color: black; /* เปลี่ยนสีเมื่อเม้าส์ชี้ */
+            transition: color 0.3s ease; /* เพิ่มความนุ่มนวลในการเปลี่ยนแปลง */
+        }
+
+        /* N Seoul Tower */
+        .ns_hl {
+            position: absolute;
+            top: 380px;
+            left: 6%;
+            object-fit: cover;
+            border: 1px solid black;
+            border-radius: 15px;
+        }
+        
+        .ns_hl_word {
+            position: absolute;
+            font-family: Courier;
+            font-size: 25px;
+            color: black;
+            top: 640px;
+            left: 7.5%;
+        }
+
+        /* Gyeongbokgung Palace */
+        .gy {
+            position: absolute;
+            top: 380px;
+            left: 24%;
+            object-fit: cover;
+            border: 1px solid black;
+            border-radius: 15px;
+        }
+
+        .gy_word {
+            position: absolute;
+            font-family: Courier;
+            font-size: 25px;
+            color: black;
+            top: 640px;
+            left: 22.4%;
+        }
+
+        /* Jungnim */
+        .jn {
+            position: absolute;
+            top: 380px;
+            left: 42%;
+            object-fit: cover;
+            border: 1px solid black;
+            border-radius: 15px;
+            }    
+        
+        .jn_word {
+            position: absolute;
+            font-family: Courier;
+            font-size: 25px;
+            color: black;
+            top: 640px;
+            left: 43%;
+        }
+
+        /* Hamdeok Beach*/
+        .ham {
+            position: absolute;
+            top: 380px;
+            left: 60%;
+            object-fit: cover;
+            border: 1px solid black;
+            border-radius: 15px;
+            }    
+        
+        .ham_word {
+            position: absolute;
+            font-family: Courier;
+            font-size: 25px;
+            color: black;
+            top: 640px;
+            left: 61.5%;
+        }
+
+        /* hanok */
+        .hanok {
+            position: absolute;
+            top: 380px;
+            left: 78%;
+            object-fit: cover;
+            border: 1px solid black;
+            border-radius: 15px;
+            }
+
+        .hanok_word {
+            position: absolute;
+            font-family: Courier;
+            font-size: 25px;
+            color: black;
+            top: 640px;
+            left: 76.5%;
+        }
+
+        .hover-img:hover{ /* เพิ่มเอฟเฟกต์เมื่อ hover บนภาพ */
+            transform: scale(1.05); /* ขยายภาพเล็กน้อย */
+            transition: 0.3s; /* เพิ่มความนุ่มนวลในการเปลี่ยนแปลง */
+        }
+
+        .footer {
+            position: absolute;
+            top: 900px;
+            width: 100%;
+            background-color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+        }       
+        
+        .social-icons{
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 15px;
+        }
+
+        .social-icons a{
+            color: #42526e;
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover{
+            color: black;
+            transform: translateY(-3px); 
+        }
+
+        .footer-text{
+            color: #42526e;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+         
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="homepage.html">
+                <img src="images/logo.png">
+            </a>
+        </div>
+
+        <div class="menu">
+            <a href="homepage.html">Home</a>
+            <a href="choose.html" target="_blank">Places</a>
+            <a href="https://www.google.com/maps" target="_blank">Maps</a>
+        </div> 
+    </nav>
+         
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>  <!-- นำเข้า social-icons -->
+
+    <!--- N Seoul Tower -->  
+    <a href="namsan.html" target="_blank">
+        <img src="images/ns_hl.jpg" class="ns_hl hover-img" alt="Trulli" width="250" height="250"> <!-- Class สามารถมีได้หลายอัน แต่คั่นด้วยช่องว่าง เท่านั้น -->
+    </a>
+        <p class="ns_hl_word">N Seoul Tower</p>
+    
+    <!--- Gyeongbokgung Palace -->   
+    <a href="gyeongbokgung.html" target="_blank">
+        <img src="images/gy.jpg" class="gy hover-img" alt="Trulli" width="250" height="250">
+    </a>
+        <p class="gy_word">Gyeongbokgung Palace</p>
+
+    <!--- Jungnim port-->
+    <a href="jungnim.html" target="_blank">
+        <img src="images/jn.jpg" class="jn hover-img" alt="Trulli" width="250" height="250">
+    </a>
+        <p class="jn_word">Jangnim Harbor</p>
+
+    <!--- hamdeok -->
+    <a href="hamdeok.html" target="_blank">
+        <img src="images/hamdeok.jpg" class="ham hover-img" alt="Trulli" width="250" height="250">
+    </a>
+        <p class="ham_word">Hamdeok Beach</p>
+    
+    <!--- hanok -->
+    <a href="hanok.html" target="_blank">
+        <img src="images/hanok2.jpg" class="hanok hover-img" alt="Trulli" width="250" height="250">   
+    </a>
+        <p class="hanok_word">Bukchon Hanok Village</p>
+
+
+    <!-- footer ด้านล่าง-->
+    <footer class="footer">
+
+    <h3 class="footer-text">CONTACT</h3><br>
+
+    <div class="social-icons">
+        <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.line.me" target="_blank"><i class="fa-brands fa-line"></i></a>
+        <a href="https://mail.google.com" target="_blank"><i class="fa-brands fa-google"></i></a>
+    </div>
+
+    <p class="footer-text">Copyright © 2026 KOREA with U</p>
+
+    </footer>
+
+</body>
+</html>
