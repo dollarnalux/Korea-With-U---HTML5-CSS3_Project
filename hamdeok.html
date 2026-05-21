@@ -3,7 +3,7 @@
 
 <head>
     <title>Hamdeok Beach | KOREA with U</title>
-    <link rel="icon" href="images/logo.png"> <!-- icon บนแท็ป title bar -->
+    <link rel="icon" href="images/logo.png">
 
     <style>
         body {
@@ -13,11 +13,11 @@
         }
 
         nav {
-            position: fixed; /* ทำให้เมนูอยู่ด้านบนตลอดเวลา */
+            position: fixed;
             top: 0;
             left: 0;
             width: 96.4%;
-            z-index: 1000; /* ทำให้เมนูอยู่เหนือเนื้อหาอื่นๆ */
+            z-index: 1000;
             background-color: #ffffff;
             display: flex;
             justify-content: space-between;
@@ -42,94 +42,87 @@
             font-size: 20px;
         }
 
-        nav a:hover { /* เพิ่มเอฟเฟกต์เมื่อ hover บนลิงก์ในเมนู */
-            color: black; /* เปลี่ยนสีเมื่อเม้าส์ชี้ */
-            transition: color 0.3s ease; /* เพิ่มความนุ่มนวลในการเปลี่ยนแปลง */
+        nav a:hover {
+            color: black;
+            transition: color 0.3s ease;
         }
 
-        .article { /* เพิ่มคลาสสำหรับจัดรูปแบบบทความ */
-            font-family: 'Prompt', sans-serif; /* ใช้ฟอนต์ Prompt จาก Google Fonts */
+        .article {
+            font-family: 'Prompt', sans-serif;
             padding: 20px;
-            margin-bottom: 80px; /* เพิ่มระยะห่างด้านล่างเพื่อไม่ให้ติดกับส่วนอื่น */
+            margin-bottom: 80px;
         }
         
-        /* เพิ่มคลาสสำหรับจัดรูปแบบหัวข้อ */
         .main_title { 
             position: absolute;
             top: 55px;
             left: 50%;
             font-family: 'Playfair Display', serif;
             font-size: 70px;
-            transform: translate(-50%); /* จัดกึ่งกลางแนวนอน */
+            transform: translate(-50%);
             color: #264180;
-            letter-spacing: 2px; /* เพิ่มระยะห่างระหว่างตัวอักษร */
+            letter-spacing: 2px;
         }
-        
-        /* เพิ่มคลาสสำหรับจัดรูปแบบหัวข้อ */
 
         .title { 
-            /*position: absolute;
-            transform: translateX(-50%);*/
             width: 80%; 
-            margin: auto; /* จัดกึ่งกลางแนวนอน */
+            margin: auto;
             letter-spacing: 1.5px; 
-            line-height: 1.5; /* เพิ่มระยะห่างระหว่างบรรทัด */
-            font-family: 'Prompt', sans-serif; /* ใช้ฟอนต์ Prompt จาก Google Fonts */
+            line-height: 1.5;
+            font-family: 'Prompt', sans-serif;
             font-size: 35px;
             color: #42526e;
         }
         
-        .detail { /* เพิ่มคลาสสำหรับจัดรูปแบบรายละเอียด */
-            text-indent: 50px; /* เพิ่มการเยื้องบรรทัดแรก */
-            width: 80%; /* กำหนดความกว้างของข้อความ */
-            margin: auto; /* จัดกึ่งกลางแนวนอน */
+        .detail {
+            text-indent: 50px;
+            width: 80%;
+            margin: auto;
             margin-top: 40px;
             font-family: 'Prompt', sans-serif;
             font-size: 23px;
             color: #76829b; 
         }
 
-        .mt1 { /* คลาสสำหรับเพิ่มระยะห่างด้านบน */
+        .mt1 {
             margin-top: 100px;
         }
 
-        .image { /* เพิ่มคลาสสำหรับจัดรูปแบบภาพ */
-            display: block; /* ทำให้ภาพเป็นบล็อกเพื่อจัดการกับการจัดวาง */
-            margin: auto; /* จัดกึ่งกลางแนวนอนและเพิ่มระยะห่างด้านบนและล่าง */
-            width: 50%; /* กำหนดความกว้างของภาพ */
+        .image {
+            display: block;
+            margin: auto;
+            width: 50%;
             border-radius: 15px;
         }
         
-        .mt-240 { /* คลาสสำหรับเพิ่มระยะห่างด้านบน */
+        .mt-240 {
             margin-top: 240px;
             }
 
         .hd_way_list {
-            
-            text-indent: 50px; /* ย่อหน้าบรรทัดแรก */
+            text-indent: 50px;
             top: 1000px;
             left: 50%; 
-            width: 80%; /* กำหนดความกว้างของข้อความ */
+            width: 80%;
             margin: auto;
             font-size: 23px;
             font-family: 'Prompt', sans-serif;
             color: #76829b;
-            line-height: 1.5; /* เพิ่มระยะห่างระหว่างบรรทัด */
-            padding: 30px; /* เพิ่มระยะห่างรอบๆ รายการ */
+            line-height: 1.5;
+            padding: 30px;
         }
 
-        /* การใช้ list*/
         dl {
-            margin-left: 20px; /* เพิ่มระยะห่างด้านซ้ายของแต่ละกลุ่ม */
-            margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่างของแต่ละกลุ่ม */
+            margin-left: 20px;
+            margin-bottom: 20px;
         }        
 
-        dt { /*หัวข้อย่อย */
-            font-weight: bold; /* กำหนดน้ำหนักของฟ้อนท์ ให้เป็นตัวหนา */
-            margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
+        dt {
+            font-weight: bold;
+            margin-top: 10px;
         }
 
-        .footer {  /*ส่วนล่างสุด*/
+        .footer {
             margin-top: 200px;
             width: 100%;
             background-color: white;
@@ -181,8 +174,6 @@
         </div>   
     </nav>
 
-
-    <!-- นำเข้า Google Fonts แล้วไม่ต้องนำเข้าอีก -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap"> <!-- นำเข้า Google Font Playfair Display -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500&display=swap"> <!-- นำเข้า Google Font Prompt -->
     
@@ -199,23 +190,20 @@
         เป็นแหล่งพักผ่อนสุดชิลที่เผยให้เห็นถึงความงดงามของน้ำทะเลสีฟ้า และหาดทรายสีขาว มองออกไปเราก็จะเห็นทิวทัศน์ของ ยอดเขาซออูบง (Seoubong Peak)
         กรวยภูเขาไฟที่ดับมอด กลายเป็นเนินเขาสีเขียวที่บดบังคลื่นลม ทำให้บางบริเวณของหาดฮัมด็อกมีคลื่นลมที่ค่อนข้างสงบ เหมาะกับการไปเดินหาด เล่นน้ำชิลๆ</p><br><br><br>
             
-    <!-- สิ่งที่น่าสนใจ -->
-        <h2 class="title">▶ สิ่งที่น่าสนใจ</h2>
-        <p class="detail">พื้นในบริเวณหาดฮัมด็อกเป็นศูนย์รวมของโรงแรม รีสอร์ท ร้านอาหาร และคาเฟ่ ทำให้ที่นี่เป็นแหล่งพักผ่อนชั้นยอดบนเกาะเชจู
-            <br>ที่สำคัญยังเป็นสถานที่จัดงานอีเวนต์ คอนเสิร์ต รวมถึงยังมีกิจกรรมสนุกๆ ให้ทำมากมาย ไม่ว่าจะเป็นพายเรือคายัค หรือเล่นเซิร์ฟ
-            <br>ที่จัดขึ้นในบริเวณท่าเรือ และด้วย Jangnim Harbor ตั้งอยู่ในพื้นที่เมืองปูซาน จึงยังมีสิ่งที่น่าสนใจอื่นๆ อีกมากมาย</p><br><br>
-        <img src="images/hd_11.jpg" class="image" alt="Trulli"><br>
-        <img src="images/collage1.jpg" class="image" alt="Trulli"><br>
-        <img src="images/collage3.jpg" class="image" alt="Trulli"><br>
-        <p class="detail">ทางทิศตะวันออกของหาดฮัมด็อกจะมี Jeju Olle trail เส้นทางปีนเขาบนยอดเขาซออูบงที่ถ้ามองย้อนลงมา เราจะได้เห็นวิวของท้องทะเล 
+    <h2 class="title">▶ สิ่งที่น่าสนใจ</h2>
+    <p class="detail">พื้นในบริเวณหาดฮัมด็อกเป็นศูนย์รวมของโรงแรม รีสอร์ท ร้านอาหาร และคาเฟ่ ทำให้ที่นี่เป็นแหล่งพักผ่อนชั้นยอดบนเกาะเชจู
+        <br>ที่สำคัญยังเป็นสถานที่จัดงานอีเวนต์ คอนเสิร์ต รวมถึงยังมีกิจกรรมสนุกๆ ให้ทำมากมาย ไม่ว่าจะเป็นพายเรือคายัค หรือเล่นเซิร์ฟ
+        <br>ที่จัดขึ้นในบริเวณท่าเรือ และด้วย Jangnim Harbor ตั้งอยู่ในพื้นที่เมืองปูซาน จึงยังมีสิ่งที่น่าสนใจอื่นๆ อีกมากมาย</p><br><br>
+    <img src="images/hd_11.jpg" class="image" alt="Trulli"><br>
+    <img src="images/collage1.jpg" class="image" alt="Trulli"><br>
+    <img src="images/collage3.jpg" class="image" alt="Trulli"><br>
+    <p class="detail">ทางทิศตะวันออกของหาดฮัมด็อกจะมี Jeju Olle trail เส้นทางปีนเขาบนยอดเขาซออูบงที่ถ้ามองย้อนลงมา เราจะได้เห็นวิวของท้องทะเล 
             ชายหาด และบ้านเมืองบนเกาะเชจูได้อย่างกว้างไกล ยิ่งวันไหนที่ฟ้าเปิดก็อาจเห็นได้ไกลจนถึง ภูเขาฮัลลาซาน (Hallasan) เลยทีเดียว </p><br><br>
             
-        <img src="images/collage.jpg" class="image" alt="Trulli"><br>
-        <img src="images/collage4.jpg" class="image" alt="Trulli"><br><br>
+    <img src="images/collage.jpg" class="image" alt="Trulli"><br>
+    <img src="images/collage4.jpg" class="image" alt="Trulli"><br><br>
 
-    <!-- การเดินทาง -->
-        <h2 class="title">▶ การเดินทาง</h2>
-    
+    <h2 class="title">▶ การเดินทาง</h2>
     <!-- การใช้แท๊ก list เป็นรายการๆ-->    
     <ul class="hd_way_list">
     <dl>
@@ -236,9 +224,7 @@
 
     <!-- footer ด้านล่าง-->
     <footer class="footer">
-
     <h3 class="footer-text">CONTACT</h3><br>
-
     <div class="social-icons">
         <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
         <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
@@ -247,7 +233,6 @@
     </div>
 
     <p class="footer-text">Copyright © 2026 KOREA with U</p>
-
     </footer>
 
 </body>
